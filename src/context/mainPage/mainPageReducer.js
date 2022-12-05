@@ -3,7 +3,8 @@ import {VISIBLE_MODAL_GALLERY,
 		 CURRENT_COUNTER, CURRENT_BASKET, 
 		 DELETE_BASKET, 
 		 ACTIVE_IMAGE_TOGGLE_PREV, 
-		 ACTIVE_IMAGE_TOGGLE_NEXT
+		 ACTIVE_IMAGE_TOGGLE_NEXT,
+		 VISIBLE_BURGER
 } from '../types'
 
 
@@ -18,7 +19,12 @@ export function mainPageReducer(state, {type, payload}) {
 			return {
 				...state,
 				basketVisible: !state.basketVisible
-			}	
+			}
+		case VISIBLE_BURGER:
+			return {
+				...state,
+				burgerVisible: !state.burgerVisible
+			}		
 		case ACTIVE_IMAGE:
 			return {
 				...state,

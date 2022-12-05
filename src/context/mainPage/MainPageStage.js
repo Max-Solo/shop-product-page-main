@@ -12,11 +12,13 @@ import {
    DELETE_BASKET,
    ACTIVE_IMAGE_TOGGLE_NEXT,
    ACTIVE_IMAGE_TOGGLE_PREV,
+	VISIBLE_BURGER
 } from "../types"
 
 export function MainPageStage({ children }) {
    const [state, dispatch] = useReducer(mainPageReducer, {
       basketVisible: false,
+      burgerVisible: false,
       modalGalleryVisible: false,
       activeImage: 1,
       counter: 0,
@@ -29,6 +31,8 @@ export function MainPageStage({ children }) {
    const visibleModalGallery = () => dispatch({ type: VISIBLE_MODAL_GALLERY })
 
    const visibleBasket = () => dispatch({ type: VISIBLE_BASKET })
+
+   const visibleBurger = () => dispatch({ type: VISIBLE_BURGER })
 
    const handleActiveImage = (e) => {
       dispatch({
@@ -105,6 +109,7 @@ export function MainPageStage({ children }) {
             addBasket,
             deleteBasket,
             activeImageToggle,
+				visibleBurger
          }}
       >
          {children}
