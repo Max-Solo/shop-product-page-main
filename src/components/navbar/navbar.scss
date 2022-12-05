@@ -1,0 +1,92 @@
+.navbar-wrapper {
+	display: flex;
+	align-items: center;
+	padding: 2rem 0;
+	border-bottom: 1px solid hsl(219, 9%, 85%);
+}
+
+.navbar-logo {
+	font-weight: 700;
+	font-size: 2rem;
+	margin-right: 3rem;
+	padding: 0 0 0.6rem 0;
+	color:hsl(220, 13%, 13%);
+}
+
+.navbar {
+	flex: 1 1 auto;
+}
+
+.navbar-list {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	gap: 1.8rem;
+	&-item a{
+		text-decoration: none;
+		color: hsl(219, 9%, 45%);
+		transition: all .2s;
+		&:hover {
+			color: hsl(220, 13%, 13%);
+		}
+		&::after {
+			content: '';
+			display: block;
+			width: 0%;
+			height: 0.2rem;
+			background-color:  hsl(26, 100%, 55%);
+			position: relative;
+			top: 200%;
+			transition: all .2s;
+		}
+		&:hover::after {
+			width: 100%;
+		}
+	}
+}
+
+.navbar-info {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.navbar-basket {
+	cursor: pointer;
+}
+
+.navbar-account {
+		border-radius: 100%;
+		border: 0.2rem solid hsl(0, 0%, 100%);
+		width: 3rem;
+		height: 3rem;
+		object-fit: cover;
+		cursor: pointer;
+		transition: all .3s;
+		&:hover {
+			border: 0.2rem solid hsl(26, 100%, 55%);
+		}
+}
+
+.navbar-info {
+	display: flex;
+	gap: 3rem;
+}
+
+.navbar-current-count {
+	font-size: 0.5rem;
+	font-weight: 700;
+	color: hsl(0, 0%, 100%);
+	position: absolute;
+	left: 10%;
+	top: 25%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width:  1rem;
+	height: 0.6rem;
+	background-color: hsl(26, 100%, 55%);
+	border-radius: 40%;
+	transition: .3s all;
+}
