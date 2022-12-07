@@ -25,11 +25,11 @@ export function Gallery() {
          state.activeImage === 1
             ? 0
             : state.activeImage === 2
-            ? widthCurrent.slice(0, -2)
+            ? +widthCurrent.slice(0, -2)
             : state.activeImage === 3
-            ? widthCurrent.slice(0, -2) * 2
+            ? +widthCurrent.slice(0, -2) * 2
             : state.activeImage === 4
-            ? widthCurrent.slice(0, -2) * 3
+            ? +widthCurrent.slice(0, -2) * 3
             : null
       )
    }, [state.activeImage])

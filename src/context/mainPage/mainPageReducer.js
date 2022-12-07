@@ -33,13 +33,13 @@ export function mainPageReducer(state, {type, payload}) {
 		case ACTIVE_IMAGE_TOGGLE_NEXT:
 			return {
 				...state,
-				activeImage: state.activeImage !== 4 ? state.activeImage + 1 : state.activeImage = 0
+				activeImage: state.activeImage === 5 ? state.activeImage = 1 : state.activeImage++
 								 
 			}	
 		case ACTIVE_IMAGE_TOGGLE_PREV:
 			return {
 				...state,
-				activeImage: state.activeImage !== 1 ? state.activeImage - 1 : state.activeImage = 5
+				activeImage: state.activeImage === 0 ? state.activeImage = 4 : state.activeImage--
 								 
 			}	
 		case CURRENT_COUNTER:
