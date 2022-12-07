@@ -13,7 +13,7 @@ The basis was to take functional components and the following hooks:
 * useEffect
 * useRef
 * useReducer
-* UseContext
+* useContext
 
 Framer Motion💫 library was used for animation
 
