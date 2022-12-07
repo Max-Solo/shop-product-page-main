@@ -108,3 +108,31 @@
 		opacity: 0.6;
 	}
 }
+
+@media (max-width: 400px) {
+
+
+	.info-price-row {
+		display: inline-flex;
+	}
+
+	.price-old,
+	.price-new,
+	.price-discount {
+		display: inline-block;
+	}
+
+	.price-old {
+		position: absolute;
+		right: 4%;
+	}
+
+	.info-control {
+		flex-direction: column;
+	}
+
+	.info-button {
+		height: 3rem;
+	}
+	
+}

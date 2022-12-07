@@ -10,10 +10,10 @@ function App() {
         <main className='main'>
             <div className='container'>
                 <Navbar />
-                {/* <div className='body'>
+                <div className='body'>
                     <Gallery />
                     <Information />
-                </div> */}
+                </div>
                 <Basket />
             </div>
         </main>

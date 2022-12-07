@@ -15,10 +15,12 @@ code {
 
 .main {
 	position: relative;
+	height: 100vh;
 }
 
 .container {
 	max-width: 1440px;
+	padding: 0 15px;
 	margin: 0 auto;
 }
 
@@ -27,4 +29,19 @@ code {
 	justify-content: center;
 	gap: 10rem;
 	padding: 5rem 0;
+}
+
+@media (max-width: 1000px) {
+	.body {
+		flex-direction: column;
+		gap: 0;
+		align-items: center;
+	} 
+	
+}
+
+@media (max-width: 576px) {
+	.body {
+		padding-top: 1rem;
+	} 
 }

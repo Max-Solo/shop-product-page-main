@@ -1,5 +1,4 @@
-import React, { useContext, useRef, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import React, { useContext, useRef, useEffect, useState } from "react"
 
 import { MainPageContext } from "../../context/mainPage/mainPageContext"
 
@@ -15,23 +14,31 @@ import "./gallery.scss"
 
 export function Gallery() {
    const { state, visibleModalGallery, handleActiveImage, activeImageToggle } = useContext(MainPageContext)
+   const [widthImage, setWidthImage] = useState(0)
 
-   const position =
-      state.activeImage === 1
-         ? 0
-         : state.activeImage === 2
-         ? 30
-         : state.activeImage === 3
-         ? 60
-         : state.activeImage === 4
-         ? 90
-         : null
+   const refImg = useRef(null)
+
+   useEffect(() => {
+      const widthCurrent = window.getComputedStyle(refImg.current).getPropertyValue("width")
+
+      setWidthImage(
+         state.activeImage === 1
+            ? 0
+            : state.activeImage === 2
+            ? widthCurrent.slice(0, -2)
+            : state.activeImage === 3
+            ? widthCurrent.slice(0, -2) * 2
+            : state.activeImage === 4
+            ? widthCurrent.slice(0, -2) * 3
+            : null
+      )
+   }, [state.activeImage])
 
    return (
       <>
-         <div className='gallery-wrapper'>
-            	<div onClick={visibleModalGallery} className='gallery-main'>
-               <div style={{ transform: `translateX(-${position}rem)` }} className='gallery-main-container'>
+         <div ref={refImg} className='gallery-wrapper'>
+            <div onClick={visibleModalGallery} className='gallery-main'>
+               <div style={{ transform: `translateX(-${widthImage}px)` }} className='gallery-main-container'>
                   <img src={productImg1} alt='product img 1' className='gallery-current-img' />
                   <img src={productImg2} alt='product img 2' className='gallery-current-img' />
                   <img src={productImg3} alt='product img 3' className='gallery-current-img' />
@@ -72,13 +79,13 @@ export function Gallery() {
          {state.modalGalleryVisible ? (
             <div className='gallery-modal'>
                <div onClick={visibleModalGallery} className='gallery-main'>
-               <div style={{ transform: `translateX(-${position}rem)` }} className='gallery-main-container'>
-                  <img src={productImg1} alt='product img 1' className='gallery-current-img' />
-                  <img src={productImg2} alt='product img 2' className='gallery-current-img' />
-                  <img src={productImg3} alt='product img 3' className='gallery-current-img' />
-                  <img src={productImg4} alt='product img 4' className='gallery-current-img' />
+                  <div style={{ transform: `translateX(-${widthImage}px)` }} className='gallery-main-container'>
+                     <img src={productImg1} alt='product img 1' className='gallery-current-img' />
+                     <img src={productImg2} alt='product img 2' className='gallery-current-img' />
+                     <img src={productImg3} alt='product img 3' className='gallery-current-img' />
+                     <img src={productImg4} alt='product img 4' className='gallery-current-img' />
+                  </div>
                </div>
-            </div>
                <div className='gallery-nav'>
                   <div
                      onClick={handleActiveImage}
